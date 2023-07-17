@@ -1,5 +1,5 @@
 // Importing "react" is still required when using methods from it
-import { useState } from "react";
+import { useState } from 'react';
 
 const elvenShieldRecipe = {
   leatherStrips: 2,
@@ -15,16 +15,11 @@ const elvenGauntletsRecipe = {
 };
 
 const Recipes = () => {
-  const [recipe, setRecipe] = useState(elvenShieldRecipe);
+  const [recipe, setRecipe] = useState({});
 
   return (
     <div>
       <h3>Current Recipe:</h3>
-      <button onClick={() => setRecipe(elvenShieldRecipe)}>Elven Shield</button>
-      <button onClick={() => setRecipe(elvenGauntletsRecipe)}>
-        Elven Gauntlets
-      </button>
-
       <ul>
         {Object.keys(recipe).map((material) => (
           <li key={material}>
@@ -32,6 +27,14 @@ const Recipes = () => {
           </li>
         ))}
       </ul>
+      <div style={{ marginBottom: '75px' }}>
+        <button onClick={() => setRecipe(elvenShieldRecipe)}>
+          Elven Shield
+        </button>
+        <button onClick={() => setRecipe(elvenGauntletsRecipe)}>
+          Elven Gauntlets
+        </button>
+      </div>
     </div>
   );
 };
